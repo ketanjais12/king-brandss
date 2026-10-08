@@ -7,6 +7,24 @@ A responsive e-commerce front-end built for the KING BRANDSS practical assignmen
 - Live website: https://king-brandss.vercel.app/
 - Source code: https://github.com/ketanjais12/king-brandss
 
+## Screenshots
+
+### Homepage — Desktop
+
+![KING BRANDSS desktop homepage](docs/screenshots/home-desktop.png)
+
+### Homepage — Mobile
+
+<img src="docs/screenshots/home-mobile.png" alt="KING BRANDSS mobile homepage" width="320">
+
+### Collections
+
+![Collections with search, filters and sorting](docs/screenshots/collections.png)
+
+### Shopping Cart
+
+![Shopping cart with size variants, quantities and subtotal](docs/screenshots/cart.png)
+
 ## Tech Stack
 
 - React + Vite
