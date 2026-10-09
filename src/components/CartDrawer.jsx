@@ -50,7 +50,7 @@ function CartDrawer() {
         <h2 id="cart-title">YOUR CART ({cartCount})</h2>
 
         <button
-          className="icon-button"
+          className="icon-button cart-close-button"
           type="button"
           aria-label="Close cart"
           onClick={() => setIsCartOpen(false)}

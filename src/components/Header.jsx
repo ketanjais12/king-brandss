@@ -88,14 +88,19 @@ function Header() {
         Skip to content
       </a>
 
-      <div className="announcement-bar">
-        <span>ALL OVER INDIA SHIPPING</span>
-        <span className="payment-announcement">
-          NO COD | ALL PAYMENT METHODS ACCEPTED
-        </span>
-        <a href="tel:+919769009076">
-          FOR INQUIRY: +91 97690 09076
-        </a>
+      <div className="announcement-bar" role="region" aria-label="Store announcements" tabIndex={0}>
+        <div className="announcement-track">
+          <div className="announcement-group">
+            <span>ALL OVER INDIA SHIPPING</span>
+            <span>NO COD | ALL PAYMENT METHODS ACCEPTED</span>
+            <a href="tel:+919769009076">FOR INQUIRY: +91 97690 09076</a>
+          </div>
+          <div className="announcement-group announcement-copy" aria-hidden="true">
+            <span>ALL OVER INDIA SHIPPING</span>
+            <span>NO COD | ALL PAYMENT METHODS ACCEPTED</span>
+            <a href="tel:+919769009076" tabIndex={-1}>FOR INQUIRY: +91 97690 09076</a>
+          </div>
+        </div>
       </div>
 
       <header className="site-header">

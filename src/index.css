@@ -74,16 +74,26 @@ img {
 
 .announcement-bar {
   min-height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  overflow: hidden;
   padding: 8px var(--page-padding);
   background: var(--color-black);
   color: #fff;
   font-size: 10px;
   font-weight: 700;
+  line-height: 1.5;
 }
+
+.announcement-track { width: 100%; }
+
+.announcement-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.announcement-group > * { flex-shrink: 0; }
+.announcement-copy { display: none; }
 
 /* Header */
 
@@ -522,14 +532,6 @@ img {
 /* Mobile */
 
 @media (max-width: 680px) {
-  .announcement-bar {
-    gap: 8px;
-    font-size: 8px;
-  }
-
-  .payment-announcement {
-    display: none;
-  }
 
   .header-inner {
   height: 76px;
@@ -2154,4 +2156,71 @@ textarea:focus {
     grid-row: auto;
     justify-self: end;
   }
-} 
+}
+
+/* Continuous mobile announcements; pause while interacting. */
+@media (max-width: 680px) {
+  .announcement-bar { padding: 9px 0; font-size: 10px; }
+  .announcement-track {
+    display: flex;
+    width: max-content;
+    animation: announcement-scroll 15s linear infinite;
+  }
+  .announcement-group {
+    flex-shrink: 0;
+    justify-content: flex-start;
+    gap: 40px;
+    padding-right: 40px;
+  }
+  .announcement-group > * { white-space: nowrap; }
+  .announcement-copy { display: flex; }
+  .announcement-bar:hover .announcement-track,
+  .announcement-bar:focus-within .announcement-track {
+    animation-play-state: paused;
+  }
+  /* Keep all links visible while navigating with the keyboard. */
+  .announcement-bar:focus-within .announcement-track {
+    width: 100%;
+    animation: none;
+  }
+  .announcement-bar:focus-within .announcement-group {
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 12px;
+    text-align: center;
+  }
+  .announcement-bar:focus-within .announcement-group > * { white-space: normal; }
+  .announcement-bar:focus-within .announcement-copy { display: none; }
+}
+
+@keyframes announcement-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 680px) and (prefers-reduced-motion: reduce) {
+  .announcement-track { width: 100%; animation: none; }
+  .announcement-group {
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 12px;
+    text-align: center;
+  }
+  .announcement-group > * { white-space: normal; }
+  .announcement-copy { display: none; }
+}
+
+.cart-close-button,
+.cart-close-button:focus,
+.cart-close-button:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.cart-close-button:focus-visible {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+}
